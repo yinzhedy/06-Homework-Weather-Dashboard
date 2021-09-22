@@ -32,6 +32,15 @@ searchButton.addEventListener("click", function() {
             localStorage.setItem("dataHumidity", humidity);
             localStorage.setItem("dataUvIndex", uvIndex);
             localStorage.setItem("locationAndDate", locationAndDate);
+
+            var forecastApiUrl = "https://api.openweathermap.org/data/2.5/forecast?q="+ city + "&appid=" + apiKey;
+            fetch(forecastApiUrl)
+            .then(function(response) {
+                response.json()
+                .then(function(data) {
+                    console.log(data)
+                })
+            })
         });
     })
     displayTodaysWeather();
