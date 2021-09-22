@@ -16,7 +16,7 @@ searchButton.addEventListener("click", function() {
     .then(function(response) {
         response.json()
         .then(function(data){
-            var temp = "Temperature:" + (Math.floor((data.main.temp - 273)* (9/5) + 32)) + " Degrees Fahrenheit"
+            var temp = "Temperature:" + (Math.floor((data.main.temp - 273)* (9/5) + 32)) + " °F"
             var wind = "Wind Speed:" + data.wind.speed + " MPH";
             var humidity = "Humidity:" + data.main.humidity + "%";
             var uvIndex = "UV Index:" + data.main.uvi;
