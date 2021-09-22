@@ -14,12 +14,22 @@ searchButton.addEventListener("click", function() {
     .then(function(response) {
         response.json()
         .then(function(data){
+            var temp = "Temperature:" + (Math.floor((data.main.temp - 273)* (9/5) + 32)) + " Degrees Fahrenheit"
             var wind = "Wind Speed:" + data.wind.speed + " MPH";
+            var humidity = "Humidity:" + data.main.humidity + "%";
+            var uvIndex = "UV Index:" + data.main.uvi;
+            console.log(temp);
             console.log(data);
-            localStorage.setItem("data", wind);
+            console.log(humidity);
+            console.log(uvIndex);
+            localStorage.setItem("dataTemp", temp);
+            localStorage.setItem("dataWindSpeed", wind);
+            localStorage.setItem("dataHumidity", humidity);
+            localStorage.setItem("dataUvIndex", uvIndex);
         });
     })
     displayTodaysWeather();
+    return;
 })
 
 function displayTodaysWeather() {
